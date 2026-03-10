@@ -388,6 +388,10 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 .gs-hidden-left{opacity:0;transform:translateX(-40px)}
 .gs-hidden-right{opacity:0;transform:translateX(40px)}
 .gs-hidden-scale{opacity:0;transform:scale(.95)}
+/* Fallback: if GSAP fails, reveal all hidden elements after 3s */
+@keyframes gsapFallback{to{opacity:1;transform:none}}
+.gs-hidden,.gs-hidden-left,.gs-hidden-right,.gs-hidden-scale{animation:gsapFallback 0s 3s forwards}
+.gsap-ready .gs-hidden,.gsap-ready .gs-hidden-left,.gsap-ready .gs-hidden-right,.gsap-ready .gs-hidden-scale{animation:none}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
@@ -507,10 +511,10 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
   <div class="hero-overlay"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <p class="hero-label gs-hidden">Investment. Venture Capital. Advisory.</p>
-    <h1 class="gs-hidden">Connecting People,<br>Ideas and <strong>Capital</strong></h1>
-    <p class="hero-sub gs-hidden">A merchant banking approach to capital raising, deal structuring, and advisory services across four high-conviction verticals.</p>
-    <div class="hero-stats gs-hidden">
+    <p class="hero-label">Investment. Venture Capital. Advisory.</p>
+    <h1>Connecting People,<br>Ideas and <strong>Capital</strong></h1>
+    <p class="hero-sub">A merchant banking approach to capital raising, deal structuring, and advisory services across four high-conviction verticals.</p>
+    <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-val" data-count="540">$0M</div>
         <div class="hero-stat-label">Capital Deployed</div>
@@ -939,6 +943,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
 
 // GSAP ScrollTrigger Animations - Elevated
 gsap.registerPlugin(ScrollTrigger);
+document.body.classList.add('gsap-ready');
 
 // Smooth nav entrance on load
 gsap.from('.nav', { y: -80, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
