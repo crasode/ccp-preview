@@ -444,7 +444,7 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 (function(){
 var h="e18583a71c218b24bb56199e9a783caa96f5cf311d161260a77b503e2c291ee8";
 var s=sessionStorage.getItem("ccp_auth");
-if(s===h){document.getElementById("pw-gate").remove();document.getElementById("pw-gate-style").remove();return;}
+if(s===h){document.getElementById("pw-gate").remove();document.getElementById("pw-gate-style").remove();window.scrollTo(0,0);return;}
 document.documentElement.classList.add("pw-locked");
 document.getElementById("pw-input").addEventListener("keydown",function(e){if(e.key==="Enter")checkPw()});
 })();
@@ -458,9 +458,11 @@ if(hex===h){
 sessionStorage.setItem("ccp_auth",h);
 document.getElementById("pw-gate").classList.add("fade-out");
 document.documentElement.classList.remove("pw-locked");
+window.scrollTo(0,0);
 setTimeout(function(){
 document.getElementById("pw-gate").remove();
 document.getElementById("pw-gate-style").remove();
+window.scrollTo(0,0);
 },400);
 }else{
 document.getElementById("pw-error").classList.add("visible");
