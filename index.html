@@ -383,17 +383,7 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 .footer-copy a{color:var(--gold);opacity:.5;transition:opacity .3s}
 .footer-copy a:hover{opacity:1}
 
-/* ===== GSAP ANIMATION CLASSES ===== */
-.gs-hidden{opacity:0;transform:translateY(30px)}
-.gs-hidden-left{opacity:0;transform:translateX(-40px)}
-.gs-hidden-right{opacity:0;transform:translateX(40px)}
-.gs-hidden-scale{opacity:0;transform:scale(.95)}
-/* Fallback: if GSAP fails to load, reveal all hidden elements after 3s */
-@keyframes gsapFallback{to{opacity:1;transform:none}}
-.gs-hidden,.gs-hidden-left,.gs-hidden-right,.gs-hidden-scale{animation:gsapFallback .6s 3s forwards}
-.gsap-ready .gs-hidden,.gsap-ready .gs-hidden-left,.gsap-ready .gs-hidden-right,.gsap-ready .gs-hidden-scale{animation:none}
-/* Hero content: ensure text appears even if GSAP from() tween stalls */
-.hero-content>*,.hero-stat,.nav{animation:gsapFallback .8s 2s forwards}
+/* ===== ANIMATIONS ===== */
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
@@ -486,7 +476,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 
 <!-- ===== NAVIGATION ===== -->
 <nav class="nav" role="navigation" aria-label="Primary navigation">
-  <a href="/" class="nav-logo" aria-label="Core Capital Partners home">Core <span>Capital</span></a>
+  <a href="/" class="nav-logo" aria-label="Core Capital Partners home">CORE CAPITAL <span>PARTNERS</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#verticals">Verticals</a></li>
@@ -541,12 +531,12 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-visual gs-hidden-left">
+      <div class="about-visual">
         <img src="images/about-architecture.jpg" alt="Modern glass office building exterior at dusk with illuminated windows, Vancouver BC" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius)">
         <div class="about-visual-accent"></div>
         <div class="about-visual-label">Vancouver, British Columbia</div>
       </div>
-      <div class="about-text gs-hidden-right">
+      <div class="about-text">
         <p class="section-label">About the Firm</p>
         <h2 class="section-title">Merchant Banking<br>with <strong>Conviction</strong></h2>
         <p>Core Capital Partners invests in entrepreneurs pursuing high-growth concepts across healthcare technology, fintech, strategic metals, clean technology, and plant-based alternatives. Our merchant banking approach encompasses capital raising, deal structuring, and advisory services designed to build durable businesses.</p>
@@ -574,12 +564,12 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <!-- ===== INVESTMENT VERTICALS ===== -->
 <section class="section" id="verticals">
   <div class="container">
-    <p class="section-label gs-hidden">What We Invest In</p>
-    <h2 class="section-title gs-hidden">Investment <strong>Verticals</strong></h2>
-    <p class="section-desc gs-hidden">Four high-conviction sectors where capital, expertise, and operational partnership drive long-term value creation.</p>
+    <p class="section-label">What We Invest In</p>
+    <h2 class="section-title">Investment <strong>Verticals</strong></h2>
+    <p class="section-desc">Four high-conviction sectors where capital, expertise, and operational partnership drive long-term value creation.</p>
     <div class="verticals-grid">
 
-      <article class="vertical-card gs-hidden-scale" aria-label="Healthcare Technology investment vertical">
+      <article class="vertical-card" aria-label="Healthcare Technology investment vertical">
         <img src="images/blog-biotech-scientist.jpg" alt="Biotech scientist conducting pharmaceutical research in laboratory" loading="lazy" class="vertical-card-bg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
         <div class="vertical-card-overlay"></div>
         <div class="vertical-card-content">
@@ -589,7 +579,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </article>
 
-      <article class="vertical-card gs-hidden-scale" aria-label="Fintech investment vertical">
+      <article class="vertical-card" aria-label="Fintech investment vertical">
         <img src="images/vertical-fintech.jpg" alt="Digital fintech forex charts and financial data visualization on dark blue background" loading="lazy" class="vertical-card-bg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
         <div class="vertical-card-overlay"></div>
         <div class="vertical-card-content">
@@ -599,7 +589,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </article>
 
-      <article class="vertical-card gs-hidden-scale" aria-label="Strategic Metals and Clean Technology investment vertical">
+      <article class="vertical-card" aria-label="Strategic Metals and Clean Technology investment vertical">
         <img src="images/vertical-metals.jpg" alt="Strategic metals mining and clean energy infrastructure" loading="lazy" class="vertical-card-bg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
         <div class="vertical-card-overlay"></div>
         <div class="vertical-card-content">
@@ -609,7 +599,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </article>
 
-      <article class="vertical-card gs-hidden-scale" aria-label="Plant-Based Alternatives investment vertical">
+      <article class="vertical-card" aria-label="Plant-Based Alternatives investment vertical">
         <img src="images/vertical-plant.jpg" alt="Modern vertical farming facility with LED grow lights and hydroponic shelving" loading="lazy" class="vertical-card-bg" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
         <div class="vertical-card-overlay"></div>
         <div class="vertical-card-content">
@@ -627,32 +617,32 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <section class="section" id="philosophy">
   <div class="philosophy-bg"></div>
   <div class="container" style="position:relative;z-index:2">
-    <p class="section-label gs-hidden">How We Operate</p>
-    <h2 class="section-title gs-hidden">Investment <strong>Philosophy</strong></h2>
+    <p class="section-label">How We Operate</p>
+    <h2 class="section-title">Investment <strong>Philosophy</strong></h2>
     <div class="philosophy-grid">
-      <div class="philosophy-card gs-hidden">
+      <div class="philosophy-card">
         <h3>Market Focus</h3>
         <p>An activist approach to portfolio management with both primary and secondary market experience. We identify asymmetric opportunities where capital deployment accelerates value creation across cycles.</p>
       </div>
-      <div class="philosophy-card gs-hidden">
+      <div class="philosophy-card">
         <h3>Investment Partners</h3>
         <p>Deep relationships with institutional and accredited investors enable durable, long-term capital deployment. Our partner network provides co-investment capacity and strategic support at every stage.</p>
       </div>
-      <div class="philosophy-card gs-hidden">
+      <div class="philosophy-card">
         <h3>Human Capital</h3>
         <p>Recruitment of proven executives with sector expertise and operational track records. We embed senior talent within portfolio companies to drive governance, accountability, and execution.</p>
       </div>
     </div>
     <div class="stats-row">
-      <div class="stat-block gs-hidden">
+      <div class="stat-block">
         <div class="stat-val" data-count="540">$0M</div>
         <div class="stat-label">Raised, Invested, Co-Invested</div>
       </div>
-      <div class="stat-block gs-hidden">
+      <div class="stat-block">
         <div class="stat-val" data-count="3.4">$0B</div>
         <div class="stat-label">Peak Aggregate Market Value</div>
       </div>
-      <div class="stat-block gs-hidden">
+      <div class="stat-block">
         <div class="stat-val" data-count="2005" data-prefix="" data-suffix="">0</div>
         <div class="stat-label">Year Founded</div>
       </div>
@@ -663,29 +653,29 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <!-- ===== APPROACH ===== -->
 <section class="section" id="approach">
   <div class="container">
-    <p class="section-label gs-hidden">Our Process</p>
-    <h2 class="section-title gs-hidden">Investment <strong>Approach</strong></h2>
-    <p class="section-desc gs-hidden">A disciplined, four-stage methodology applied consistently across all verticals and market conditions.</p>
+    <p class="section-label">Our Process</p>
+    <h2 class="section-title">Investment <strong>Approach</strong></h2>
+    <p class="section-desc">A disciplined, four-stage methodology applied consistently across all verticals and market conditions.</p>
     <div class="approach-steps">
-      <div class="approach-step gs-hidden">
+      <div class="approach-step">
         <!-- ASSET: Replace with SVG icon (Discovery) -->
         <div class="approach-num">01</div>
         <h3>Discovery</h3>
         <p>Systematic identification of high-growth opportunities through proprietary deal flow, sector research, and strategic referral networks. Early-stage evaluation filters for market timing, team quality, and capital efficiency.</p>
       </div>
-      <div class="approach-step gs-hidden">
+      <div class="approach-step">
         <!-- ASSET: Replace with SVG icon (Due Diligence) -->
         <div class="approach-num">02</div>
         <h3>Due Diligence</h3>
         <p>Comprehensive analysis of financial, legal, operational, and market fundamentals. Independent verification of management claims, competitive positioning, and regulatory compliance across all jurisdictions.</p>
       </div>
-      <div class="approach-step gs-hidden">
+      <div class="approach-step">
         <!-- ASSET: Replace with SVG icon (Structuring) -->
         <div class="approach-num">03</div>
         <h3>Structuring</h3>
         <p>Custom deal architecture that aligns investor interests, management incentives, and capital requirements. Governance frameworks, milestone-based tranching, and downside protection built into every transaction.</p>
       </div>
-      <div class="approach-step gs-hidden">
+      <div class="approach-step">
         <!-- ASSET: Replace with SVG icon (Execution) -->
         <div class="approach-num">04</div>
         <h3>Execution</h3>
@@ -698,12 +688,12 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <!-- ===== BLOG ===== -->
 <section class="section" id="blog">
   <div class="container">
-    <p class="section-label gs-hidden">Market Commentary</p>
-    <h2 class="section-title gs-hidden">Latest <strong>Insights</strong></h2>
-    <p class="section-desc gs-hidden">Analysis and commentary on the markets, sectors, and trends shaping our investment verticals.</p>
+    <p class="section-label">Market Commentary</p>
+    <h2 class="section-title">Latest <strong>Insights</strong></h2>
+    <p class="section-desc">Analysis and commentary on the markets, sectors, and trends shaping our investment verticals.</p>
     <div class="blog-grid">
 
-      <a href="https://ccpartnersinc.com/2026/02/19/from-fomo-to-fobo-when-ai-stops-being-a-tailwind-and-starts-being-a-threat/" class="blog-card gs-hidden" target="_blank" rel="noopener" aria-label="Read: From FOMO to FOBO">
+      <a href="https://ccpartnersinc.com/2026/02/19/from-fomo-to-fobo-when-ai-stops-being-a-tailwind-and-starts-being-a-threat/" class="blog-card" target="_blank" rel="noopener" aria-label="Read: From FOMO to FOBO">
         <div class="blog-card-img">
           <img src="images/blog-fomo-fobo.jpg" alt="AI market sentiment shifting from optimism to uncertainty" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">19 Feb 2026</div>
@@ -715,7 +705,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </a>
 
-      <a href="https://ccpartnersinc.com/2026/02/03/new-political-order-canadas-carney-fights-back/" class="blog-card gs-hidden" target="_blank" rel="noopener" aria-label="Read: Canada's Carney Fights Back">
+      <a href="https://ccpartnersinc.com/2026/02/03/new-political-order-canadas-carney-fights-back/" class="blog-card" target="_blank" rel="noopener" aria-label="Read: Canada's Carney Fights Back">
         <div class="blog-card-img">
           <img src="images/blog-parliament.jpg" alt="Canadian Parliament Hill with flag" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">3 Feb 2026</div>
@@ -727,7 +717,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </a>
 
-      <a href="https://ccpartnersinc.com/2026/01/22/is-healthcare-ripe-for-ai-disruption/" class="blog-card gs-hidden" target="_blank" rel="noopener" aria-label="Read: Healthcare AI Disruption">
+      <a href="https://ccpartnersinc.com/2026/01/22/is-healthcare-ripe-for-ai-disruption/" class="blog-card" target="_blank" rel="noopener" aria-label="Read: Healthcare AI Disruption">
         <div class="blog-card-img">
           <img src="images/blog-medical-team.jpg" alt="Healthcare professionals collaborating on patient care" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">22 Jan 2026</div>
@@ -739,7 +729,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </a>
 
-      <a href="https://ccpartnersinc.com/2025/12/22/is-biotech-back-strong-quarter-tailwinds-reviving-the-industry/" class="blog-card gs-hidden" target="_blank" rel="noopener">
+      <a href="https://ccpartnersinc.com/2025/12/22/is-biotech-back-strong-quarter-tailwinds-reviving-the-industry/" class="blog-card" target="_blank" rel="noopener">
         <div class="blog-card-img">
           <img src="images/blog-biotech-scientist.jpg" alt="Biotech scientist in pharmaceutical research laboratory" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">22 Dec 2025</div>
@@ -751,7 +741,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </a>
 
-      <a href="https://ccpartnersinc.com/2025/12/15/consumer-confidence-slumps-affordability-front-and-center/" class="blog-card gs-hidden" target="_blank" rel="noopener">
+      <a href="https://ccpartnersinc.com/2025/12/15/consumer-confidence-slumps-affordability-front-and-center/" class="blog-card" target="_blank" rel="noopener">
         <div class="blog-card-img">
           <img src="images/blog-financial-data.jpg" alt="Financial market data visualization and city skyline" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">15 Dec 2025</div>
@@ -763,7 +753,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
         </div>
       </a>
 
-      <a href="https://ccpartnersinc.com/2025/11/25/ai-volatility-pullbacks-in-a-secular-bull-market/" class="blog-card gs-hidden" target="_blank" rel="noopener">
+      <a href="https://ccpartnersinc.com/2025/11/25/ai-volatility-pullbacks-in-a-secular-bull-market/" class="blog-card" target="_blank" rel="noopener">
         <div class="blog-card-img">
           <img src="images/blog-ai-chip.jpg" alt="AI technology and circuit board concept" loading="lazy" style="width:100%;height:100%;object-fit:cover">
           <div class="blog-card-date">25 Nov 2025</div>
@@ -786,42 +776,42 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <section class="section" id="community">
   <div class="container">
     <div class="community-intro">
-      <p class="section-label gs-hidden">Community Engagement</p>
-      <h2 class="section-title gs-hidden">Giving <strong>Back</strong></h2>
-      <p class="section-desc gs-hidden" style="margin:0 auto">We are committed to innovative ideas that help level the playing field and assist in solving economic and social issues.</p>
+      <p class="section-label">Community Engagement</p>
+      <h2 class="section-title">Giving <strong>Back</strong></h2>
+      <p class="section-desc" style="margin:0 auto">We are committed to innovative ideas that help level the playing field and assist in solving economic and social issues.</p>
     </div>
     <div class="community-grid">
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: BC Children's Hospital photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#e8f4f8,#d0e8f0)">&#9829;</div>
         <h3>BC Children's Hospital Foundation</h3>
         <p>Supporting pediatric healthcare and medical research for children across British Columbia.</p>
       </div>
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: Kidney Canada photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#f0e8e8,#e8d8d8)">&#9829;</div>
         <h3>Kidney Canada</h3>
         <p>Advancing kidney disease awareness, research, and support for affected individuals and families.</p>
       </div>
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: Raisin Community Health photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#e8f0e8,#d0e8d0)">&#9829;</div>
         <h3>Raisin Community Health Foundation</h3>
         <p>Focused on healthcare access in underserved communities, addressing systemic barriers to care.</p>
       </div>
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: Spectrum Mothers photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#f0e8f0,#e8d8e8)">&#9829;</div>
         <h3>Spectrum Mothers Society</h3>
         <p>A Canadian organization providing dedicated support and resources for mothers navigating complex family dynamics.</p>
       </div>
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: Youth hockey photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#e8e8f0,#d8d8e8)">&#9829;</div>
         <h3>North Delta Minor Hockey</h3>
         <p>Investing in youth development through organized hockey programs in the North Delta community.</p>
       </div>
-      <div class="community-card gs-hidden">
+      <div class="community-card">
         <!-- ASSET: General community involvement photo -->
         <div class="community-icon" style="background:linear-gradient(135deg,#f0f0e8,#e8e8d0)">&#9734;</div>
         <h3>Community Inquiries</h3>
@@ -834,26 +824,26 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <!-- ===== FAQ ===== -->
 <section class="section" id="faq">
   <div class="container">
-    <p class="section-label gs-hidden">Common Questions</p>
-    <h2 class="section-title gs-hidden">Frequently <strong>Asked</strong></h2>
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-title">Frequently <strong>Asked</strong></h2>
     <div class="faq-list">
-      <div class="faq-item gs-hidden">
+      <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false">What is Core Capital Partners?</div>
         <div class="faq-a"><p>Core Capital Partners is a Vancouver-based merchant banking firm founded in 2005. The firm specializes in capital raising, deal structuring, and advisory services across healthcare technology, fintech, strategic metals, clean technology, and plant-based alternatives. Since inception, Core Capital has raised, invested, and co-invested over $540 million.</p></div>
       </div>
-      <div class="faq-item gs-hidden">
+      <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false">What industries does Core Capital Partners invest in?</div>
         <div class="faq-a"><p>Core Capital Partners focuses on four primary investment verticals: Healthcare Technology, Fintech, Strategic Metals and Clean Technology, and Plant-Based Alternatives. The firm takes an activist approach to portfolio management across both primary and secondary markets.</p></div>
       </div>
-      <div class="faq-item gs-hidden">
+      <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false">Where is Core Capital Partners located?</div>
         <div class="faq-a"><p>Core Capital Partners is headquartered at Suite 1845, 1066 West Hastings Street, Vancouver, BC V6E 3X1, Canada. The firm can be reached at +1.604.566.9233 or info@ccpartnersinc.com.</p></div>
       </div>
-      <div class="faq-item gs-hidden">
+      <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false">How much capital has Core Capital Partners deployed?</div>
         <div class="faq-a"><p>Since 2005, Core Capital Partners has raised, invested, and co-invested over $540 million. Portfolio companies have achieved a peak aggregate market value of $3.4 billion across the firm's four investment verticals.</p></div>
       </div>
-      <div class="faq-item gs-hidden">
+      <div class="faq-item">
         <div class="faq-q" role="button" tabindex="0" aria-expanded="false">What is Core Capital Partners' investment approach?</div>
         <div class="faq-a"><p>Core Capital Partners employs a merchant banking approach that encompasses capital raising, deal structuring, and advisory services. The firm invests in entrepreneurs pursuing high-growth concepts and takes an activist approach with primary and secondary market experience, strong investment partner relationships, and strategic human capital recruitment.</p></div>
       </div>
@@ -864,10 +854,10 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
 <!-- ===== CONTACT ===== -->
 <section class="section" id="contact">
   <div class="container">
-    <p class="section-label gs-hidden">Get in Touch</p>
-    <h2 class="section-title gs-hidden">Contact <strong>Us</strong></h2>
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact <strong>Us</strong></h2>
     <div class="contact-grid">
-      <div class="contact-info gs-hidden-left">
+      <div class="contact-info">
         <h3>Headquarters</h3>
         <div class="contact-detail">
           <div class="contact-detail-icon">&#9679;</div>
@@ -890,7 +880,7 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
           <p>Community: <a href="mailto:community@ccpartnersinc.com">community@ccpartnersinc.com</a></p>
         </div>
       </div>
-      <div class="contact-map gs-hidden-right">
+      <div class="contact-map">
         <!-- ASSET: Google Maps embed or Mapbox dark-themed map -->
         <div class="contact-map-placeholder">Map Embed: 1066 West Hastings Street, Vancouver</div>
       </div>
@@ -914,9 +904,6 @@ setTimeout(function(){document.getElementById("pw-error").classList.remove("visi
   <p class="footer-copy">&copy; 2026 Core Capital Partners Inc. All rights reserved. | <a href="https://ccpartnersinc.com/disclaimer/">Legal Disclaimer</a></p>
 </footer>
 
-<!-- GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 // Nav scroll behavior
 const nav = document.querySelector('.nav');
@@ -943,197 +930,35 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
-// GSAP ScrollTrigger Animations - Elevated
-gsap.registerPlugin(ScrollTrigger);
-document.body.classList.add('gsap-ready');
-
-// Smooth nav entrance on load
-gsap.from('.nav', { y: -80, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
-
-// Hero content staggered entrance
-gsap.from('.hero-content > *', {
-  y: 40, opacity: 0, duration: 1.1, ease: 'power3.out',
-  stagger: 0.15, delay: 0.5
-});
-
-// Hero stats staggered entrance
-gsap.from('.hero-stat', {
-  y: 30, opacity: 0, duration: 0.8, ease: 'power3.out',
-  stagger: 0.12, delay: 1
-});
-
-// Fade up with refined easing
-document.querySelectorAll('.gs-hidden').forEach(el => {
-  gsap.to(el, {
-    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-  });
-});
-
-// Slide from left with refined easing
-document.querySelectorAll('.gs-hidden-left').forEach(el => {
-  gsap.to(el, {
-    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-  });
-});
-
-// Slide from right with refined easing
-document.querySelectorAll('.gs-hidden-right').forEach(el => {
-  gsap.to(el, {
-    opacity: 1, x: 0, duration: 1, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-  });
-});
-
-// Scale in
-document.querySelectorAll('.gs-hidden-scale').forEach((el, i) => {
-  gsap.to(el, {
-    opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out', delay: i * 0.12,
-    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-  });
-});
-
-// Section labels: subtle draw-in with gold line
-document.querySelectorAll('.section-label').forEach(el => {
-  gsap.from(el, {
-    x: -20, opacity: 0, duration: 0.7, ease: 'power2.out',
-    scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-  });
-});
-
-// Section titles: elegant fade with slight scale
-document.querySelectorAll('.section-title').forEach(el => {
-  gsap.from(el, {
-    y: 25, opacity: 0, scale: 0.98, duration: 0.9, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-  });
-});
-
-// Vertical cards: staggered reveal with subtle rotation
-document.querySelectorAll('.vertical-card').forEach((card, i) => {
-  gsap.from(card, {
-    y: 50, opacity: 0, rotateY: 3, duration: 0.9, ease: 'power3.out',
-    delay: i * 0.1,
-    scrollTrigger: { trigger: card, start: 'top 90%', once: true }
-  });
-});
-
-// Philosophy cards: cascading entrance
-document.querySelectorAll('.philosophy-card').forEach((card, i) => {
-  gsap.from(card, {
-    y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
-    delay: i * 0.15,
-    scrollTrigger: { trigger: card, start: 'top 90%', once: true }
-  });
-});
-
-// Blog cards: staggered lift with shadow
-document.querySelectorAll('.blog-card').forEach((card, i) => {
-  gsap.from(card, {
-    y: 50, opacity: 0, duration: 0.8, ease: 'power3.out',
-    delay: (i % 3) * 0.12,
-    scrollTrigger: { trigger: card, start: 'top 92%', once: true }
-  });
-});
-
-// Community cards: staggered scale entrance
-document.querySelectorAll('.community-card').forEach((card, i) => {
-  gsap.from(card, {
-    y: 30, opacity: 0, scale: 0.96, duration: 0.7, ease: 'power3.out',
-    delay: i * 0.12,
-    scrollTrigger: { trigger: card, start: 'top 90%', once: true }
-  });
-});
-
-// About section highlights: staggered counter entrance
-document.querySelectorAll('.about-highlight-item').forEach((item, i) => {
-  gsap.from(item, {
-    y: 20, opacity: 0, duration: 0.6, ease: 'power2.out',
-    delay: i * 0.1,
-    scrollTrigger: { trigger: item, start: 'top 92%', once: true }
-  });
-});
-
-// CTA sections: subtle scale entrance
-document.querySelectorAll('.cta-section, .map-cta').forEach(el => {
-  gsap.from(el.querySelector('.cta-btn, .map-cta-content'), {
-    y: 30, opacity: 0, scale: 0.97, duration: 0.9, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-  });
-});
-
-// Counter animations
+// Simple counter animation (vanilla JS, no GSAP)
 function animateCounter(el) {
-  const target = parseFloat(el.dataset.count);
-  const prefix = el.dataset.prefix !== undefined ? el.dataset.prefix : '$';
-  const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : (target >= 100 ? 'M' : (target > 10 ? 'B' : ''));
-  const isYear = target > 1900;
-  const duration = 2.2;
-  const obj = { val: 0 };
-  gsap.to(obj, {
-    val: target, duration: duration, ease: 'power2.out',
-    onUpdate: () => {
-      if (isYear) {
-        el.textContent = prefix + Math.round(obj.val) + suffix;
-      } else if (target < 10) {
-        el.textContent = prefix + obj.val.toFixed(1) + suffix;
-      } else {
-        el.textContent = prefix + Math.round(obj.val) + suffix;
+  var target = parseFloat(el.dataset.count);
+  var prefix = el.dataset.prefix !== undefined ? el.dataset.prefix : '$';
+  var suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : (target >= 100 ? 'M' : (target > 10 ? 'B' : ''));
+  var isYear = target > 1900;
+  var duration = 2000;
+  var start = performance.now();
+  function step(now) {
+    var t = Math.min((now - start) / duration, 1);
+    var ease = 1 - Math.pow(1 - t, 3);
+    var val = target * ease;
+    if (isYear) el.textContent = prefix + Math.round(val) + suffix;
+    else if (target < 10) el.textContent = prefix + val.toFixed(1) + suffix;
+    else el.textContent = prefix + Math.round(val) + suffix;
+    if (t < 1) requestAnimationFrame(step);
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        requestAnimationFrame(step);
+        obs.disconnect();
       }
-    },
-    scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-  });
-}
-
-document.querySelectorAll('[data-count]').forEach(el => animateCounter(el));
-
-// Parallax on hero
-gsap.to('.hero-grid', {
-  y: 100, ease: 'none',
-  scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
-});
-
-// Subtle parallax on section backgrounds
-document.querySelectorAll('.section').forEach(sec => {
-  const bg = sec.querySelector('.philosophy-bg, .about-visual-accent');
-  if (bg) {
-    gsap.to(bg, {
-      y: 40, ease: 'none',
-      scrollTrigger: { trigger: sec, start: 'top bottom', end: 'bottom top', scrub: 1 }
     });
-  }
-});
-
-// Gold accent line animations on vertical card hovers
-document.querySelectorAll('.vertical-card').forEach(card => {
-  const overlay = card.querySelector('.vertical-card-overlay');
-  if (overlay) {
-    card.addEventListener('mouseenter', () => {
-      gsap.to(overlay, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-    });
-  }
-});
-
-// Smooth scroll progress indicator
-const scrollLine = document.querySelector('.hero-scroll-line');
-if (scrollLine) {
-  gsap.to(scrollLine, {
-    scaleY: 0, opacity: 0, duration: 0.5, ease: 'power2.in',
-    scrollTrigger: { trigger: '.hero', start: 'bottom 90%', once: true }
-  });
+  }, { threshold: 0.1 });
+  obs.observe(el);
 }
+document.querySelectorAll('[data-count]').forEach(function(el) { animateCounter(el); });
 
-// Safety net: force-reveal any GSAP-hidden elements after 4s
-setTimeout(function(){
-  document.querySelectorAll('.gs-hidden,.gs-hidden-left,.gs-hidden-right,.gs-hidden-scale').forEach(function(el){
-    if(getComputedStyle(el).opacity==='0'){
-      el.style.opacity='1';
-      el.style.transform='none';
-      el.style.transition='opacity .6s,transform .6s';
-    }
-  });
-},4000);
 </script>
 
 </body>
