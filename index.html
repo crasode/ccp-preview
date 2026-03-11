@@ -392,6 +392,8 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 @keyframes gsapFallback{to{opacity:1;transform:none}}
 .gs-hidden,.gs-hidden-left,.gs-hidden-right,.gs-hidden-scale{animation:gsapFallback 0s 3s forwards}
 .gsap-ready .gs-hidden,.gsap-ready .gs-hidden-left,.gsap-ready .gs-hidden-right,.gsap-ready .gs-hidden-scale{animation:none}
+/* Hero content: ensure text appears even if GSAP from() tween stalls */
+.hero-content>*,.hero-stat,.nav{animation:gsapFallback .8s 2s forwards}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
