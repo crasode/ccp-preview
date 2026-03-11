@@ -428,7 +428,7 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 #pw-gate button:hover{background:rgba(184,152,106,.1);border-color:#B8986A}
 #pw-gate .pw-error{color:#c0392b;font-size:.75rem;margin-top:.75rem;opacity:0;transition:opacity .3s}
 #pw-gate .pw-error.visible{opacity:1}
-.pw-locked{overflow:hidden!important}
+.pw-locked,.pw-locked body{overflow:hidden!important;height:100%!important;position:fixed!important;width:100%!important;top:0!important}
 #pw-gate.fade-out{opacity:0;transition:opacity .4s}
 </style>
 <div id="pw-gate">
@@ -444,7 +444,7 @@ a{text-decoration:none;color:inherit;transition:color .3s}
 (function(){
 var h="e18583a71c218b24bb56199e9a783caa96f5cf311d161260a77b503e2c291ee8";
 var s=sessionStorage.getItem("ccp_auth");
-if(s===h){document.getElementById("pw-gate").remove();document.getElementById("pw-gate-style").remove();window.scrollTo(0,0);return;}
+if(s===h){document.getElementById("pw-gate").remove();document.getElementById("pw-gate-style").remove();if("scrollRestoration" in history) history.scrollRestoration="manual";document.body.scrollTop=0;document.documentElement.scrollTop=0;window.scrollTo({top:0,left:0,behavior:"instant"});setTimeout(function(){window.scrollTo({top:0,left:0,behavior:"instant"})},100);return;}
 document.documentElement.classList.add("pw-locked");
 document.getElementById("pw-input").addEventListener("keydown",function(e){if(e.key==="Enter")checkPw()});
 })();
@@ -456,14 +456,17 @@ var arr=Array.from(new Uint8Array(buf));
 var hex=arr.map(function(b){return b.toString(16).padStart(2,"0")}).join("");
 if(hex===h){
 sessionStorage.setItem("ccp_auth",h);
+if("scrollRestoration" in history) history.scrollRestoration="manual";
 document.getElementById("pw-gate").classList.add("fade-out");
 document.documentElement.classList.remove("pw-locked");
-window.scrollTo(0,0);
+document.body.scrollTop=0;document.documentElement.scrollTop=0;window.scrollTo({top:0,left:0,behavior:"instant"});
 setTimeout(function(){
 document.getElementById("pw-gate").remove();
 document.getElementById("pw-gate-style").remove();
-window.scrollTo(0,0);
-},400);
+document.body.scrollTop=0;document.documentElement.scrollTop=0;window.scrollTo({top:0,left:0,behavior:"instant"});
+},450);
+setTimeout(function(){document.body.scrollTop=0;document.documentElement.scrollTop=0;window.scrollTo({top:0,left:0,behavior:"instant"});},600);
+setTimeout(function(){document.body.scrollTop=0;document.documentElement.scrollTop=0;window.scrollTo({top:0,left:0,behavior:"instant"});},1000);
 }else{
 document.getElementById("pw-error").classList.add("visible");
 document.getElementById("pw-input").value="";
