@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Capital Partners - Kam Thindal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: #1f1f1f;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Password Screen */
+        #passwordScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .password-container {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .password-container h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .password-container p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 28px;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .password-container button {
+            width: 100%;
+            padding: 12px 16px;
+            background: #1f1f1f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .password-container button:hover {
+            background: #333;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Page content */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 60px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #1f1f1f;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-circle::before {
+            content: '';
+            width: 32px;
+            height: 32px;
+            border: 3px solid #d4a574;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            color: #1f1f1f;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        main {
+            padding: 80px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .page-intro {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: flex-start;
+        }
+
+        .sidebar-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1f1f1f;
+            white-space: nowrap;
+            min-width: 60px;
+        }
+
+        .intro-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .intro-content p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 600px;
+        }
+
+        .articles-section {
+            display: flex;
+            gap: 60px;
+        }
+
+        .section-sidebar {
+            min-width: 60px;
+        }
+
+        .section-sidebar-label {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #1f1f1f;
+            white-space: nowrap;
+        }
+
+        .articles-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+
+        .article-date {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .article-publication {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .read-more {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #1f1f1f;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #1f1f1f;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .read-more:hover {
+            background: #1f1f1f;
+            color: #ffffff;
+        }
+
+        .featured-card {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 12px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 320px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            border-radius: 8px;
+        }
+
+        .featured-content h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .featured-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #f9f9f9;
+            padding: 60px;
+            margin-top: 80px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .footer-section p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 24px;
+                padding: 24px 40px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            main {
+                padding: 40px;
+            }
+
+            .page-intro {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .articles-section {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div id="passwordScreen">
+        <div class="password-container">
+            <h1>Core Capital Partners</h1>
+            <p>Kam Thindal Thought Leadership Hub<br>Preview</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" />
+            <button onclick="checkPassword()">Access</button>
+        </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="pageContent" class="hidden">
+        <header>
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <div class="logo-text">Core<br>Capital<br>Partners</div>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#verticals">Verticals</a>
+                <a href="#philosophy">Philosophy</a>
+                <a href="#community">Community</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="page-intro">
+                <div class="sidebar-label">Insights</div>
+                <div class="intro-content">
+                    <h1>Kam Thindal</h1>
+                    <p>Expert perspectives on capital formation, innovation, and market strategy. Kam Thindal, Managing Partner at Core Capital Partners, contributes regularly to leading financial and technology publications.</p>
+                </div>
+            </div>
+
+            <div class="articles-section">
+                <div class="section-sidebar">
+                    <div class="section-sidebar-label">Commentary</div>
+                </div>
+
+                <div class="articles-grid">
+                    <div class="featured-card">
+                        <div class="featured-image"></div>
+                        <div class="featured-content">
+                            <div class="article-publication">The Street</div>
+                            <h2>AI Infrastructure and Capital Markets: The Talent Question</h2>
+                            <p>Kam Thindal examines why AI's biggest constraint isn't computational power or capital investment, but the scarcity of engineering talent capable of deploying advanced systems at scale.</p>
+                            <a href="https://thestreet.com/crypto/newsroom/kam-thin..." class="read-more">Read Article</a>
+                        </div>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image"></div>
+                        <div class="article-publication">Financial Tech Times</div>
+                        <h3 class="article-title">AI's Biggest Bottleneck Isn't Compute, It's Talent</h3>
+                        <div class="article-date">August 7, 2025</div>
+                        <p class="article-description">Analysis of AI market dynamics and the critical role of human capital in infrastructure deployment at scale.</p>
+                        <a href="https://financialtechtimes.com/kam-thindal-ai-bot..." class="read-more">Read Article</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image"></div>
+                        <div class="article-publication">TechBullion</div>
+                        <h3 class="article-title">IPO Renaissance 2025: The Reopening of U.S. Risk Trade</h3>
+                        <div class="article-date">July 22, 2025</div>
+                        <p class="article-description">Kam Thindal discusses capital market conditions, IPO activity resurgence, and strategic positioning for institutional investors.</p>
+                        <a href="https://techbullion.com/ipo-renaissance-2025-ka..." class="read-more">Read Article</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image"></div>
+                        <div class="article-publication">Grit Daily News</div>
+                        <h3 class="article-title">Nvidia's Latest AI Surge and Why Infrastructure Is Now the Smartest Bet</h3>
+                        <div class="article-date">June 13, 2025</div>
+                        <p class="article-description">Thindal explores AI infrastructure investment thesis and the strategic importance of foundational technology layers.</p>
+                        <a href="https://gritdaily.com/kam-thindal-nvidia-infrastruc..." class="read-more">Read Article</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image"></div>
+                        <div class="article-publication">Mashable</div>
+                        <h3 class="article-title">Innovation Under Siege: Regulatory Capture and the Future of Risk-Taking</h3>
+                        <div class="article-date">May 28, 2025</div>
+                        <p class="article-description">An examination of regulatory frameworks, their impact on capital formation, and implications for venture capital.</p>
+                        <a href="https://nl.mashable.com/innovation/11350/kam-th..." class="read-more">Read Article</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-image"></div>
+                        <div class="article-publication">Digital Journal</div>
+                        <h3 class="article-title">Navigating Debanking: Fair Access in Modern Finance</h3>
+                        <div class="article-date">May 21, 2025</div>
+                        <p class="article-description">Thindal discusses financial exclusion, regulatory implications, and structural challenges in digital finance.</p>
+                        <a href="https://digitaljournal.com/business/navigating-de..." class="read-more">Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Kam</h3>
+                    <p>Kam Thindal is Managing Partner at Core Capital Partners. His expertise spans capital formation, financial innovation, and institutional investment strategy across emerging technologies and regulated markets.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Core Capital Partners</h3>
+                    <p>Investment. Venture Capital. Advisory. We connect people, ideas, and capital to build transformative companies and navigate complex markets.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <p>For media inquiries or partnership opportunities, contact us through our main website or reach out directly.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            // Simple password - change this to whatever you want
+            const correctPassword = 'corecapital2026';
+
+            if (password === correctPassword) {
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('pageContent').classList.remove('hidden');
+                localStorage.setItem('ccPartnerAuth', 'true');
+            } else {
+                alert('Incorrect password');
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('passwordInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Check if already authenticated
+        if (localStorage.getItem('ccPartnerAuth') === 'true') {
+            document.getElementById('passwordScreen').classList.add('hidden');
+            document.getElementById('pageContent').classList.remove('hidden');
+        }
+
+        // Focus on password input
+        document.getElementById('passwordInput').focus();
+    </script>
+</body>
+</html>
